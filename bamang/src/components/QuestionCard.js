@@ -2,7 +2,7 @@ import React from 'react';
 import { LEVELS, POINTS, formatScore } from '../data';
 import AnswerButton from './AnswerButton';
 
-const QuestionCard = ({ question, currentIndex, total, status, selectedIndex, onSelectAnswer }) => {
+const QuestionCard = ({ question, currentIndex, total, status, selectedIndex, hiddenOptions = [], onSelectAnswer }) => {
   return (
     <div style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '8px', marginBottom: '20px' }}>
       <h3 style={{ marginTop: 0 }}>
@@ -19,6 +19,7 @@ const QuestionCard = ({ question, currentIndex, total, status, selectedIndex, on
             status={status}
             selectedIndex={selectedIndex}
             correctIndex={question.answer}
+            isHidden={hiddenOptions.includes(idx)}
             onClick={onSelectAnswer}
           />
         ))}

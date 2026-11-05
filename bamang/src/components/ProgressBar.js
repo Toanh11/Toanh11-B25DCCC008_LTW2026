@@ -9,10 +9,13 @@ const ProgressBar = ({ total, currentIndex, results }) => {
         const isCurrent = idx === currentIndex;
 
         if (results[idx] === 'correct') {
-          bgColor = '#28a745'; 
+          bgColor = '#28a745';
           textColor = '#fff';
         } else if (results[idx] === 'wrong') {
           bgColor = '#dc3545';
+          textColor = '#fff';
+        } else if (results[idx] === 'skipped') {
+          bgColor = '#ff9800';
           textColor = '#fff';
         }
 

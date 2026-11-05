@@ -1,8 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { formatScore } from '../data';
 
-const Home = ({ playerName, setPlayerName }) => {
+const Home = ({ playerName, setPlayerName, history = [] }) => {
   const navigate = useNavigate();
+  const topRecord = history.length > 0
+    ? [...history].sort((a, b) => b.score - a.score)[0]
+    : null;
 
   const handleStart = (e) => {
     e.preventDefault();
@@ -14,6 +18,13 @@ const Home = ({ playerName, setPlayerName }) => {
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center', padding: '20px' }}>
       <h2>Thử thách 3 mạng</h2>
+
+      {topRecord && (
+        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#6f42c1', marginBottom: '15px' }}>
+          Kỷ lục: {formatScore(topRecord.score)} – {topRecord.name}
+        </div>
+      )}
+
       <div style={{ textAlign: 'left', backgroundColor: '#f8f9fa', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
         <h4>Luật chơi:</h4>
         <ul>

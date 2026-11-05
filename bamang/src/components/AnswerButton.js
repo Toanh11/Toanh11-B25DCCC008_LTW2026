@@ -1,7 +1,26 @@
 import React from 'react';
 import { LETTERS } from '../data';
 
-const AnswerButton = ({ index, option, status, selectedIndex, correctIndex, onClick }) => {
+const AnswerButton = ({ index, option, status, selectedIndex, correctIndex, isHidden, onClick }) => {
+  if (isHidden) {
+    return (
+      <button
+        disabled
+        style={{
+          padding: '16px',
+          backgroundColor: '#f8f9fa',
+          border: '1px dashed #ccc',
+          borderRadius: '6px',
+          visibility: 'visible',
+          opacity: 0.3,
+          cursor: 'not-allowed'
+        }}
+      >
+        {LETTERS[index]}.
+      </button>
+    );
+  }
+
   let bgColor = '#ffffff';
   let textColor = '#000000';
 
@@ -9,7 +28,7 @@ const AnswerButton = ({ index, option, status, selectedIndex, correctIndex, onCl
     bgColor = '#ffc107';
   } else if (status === 'revealed') {
     if (index === correctIndex) {
-      bgColor = '#28a745'; 
+      bgColor = '#28a745';
       textColor = '#ffffff';
     } else if (selectedIndex === index) {
       bgColor = '#dc3545';

@@ -1,38 +1,147 @@
-.App {
+:root {
+  --primary-blue: #0288d1;
+  --primary-blue-hover: #0277bd;
+  --dark-blue: #1565c0;
+  --light-blue-bg: #e3f2fd;
+  --section-border: #90caf9;
+  --card-border: #bbdefb;
+  --text-dark: #1a237e;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8fb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+
+.main-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid var(--section-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(2, 136, 209, 0.08);
+}
+
+.section-block {
+  padding: 20px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: var(--section-border);
+  margin: 24px 0;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-blue-hover);
+  box-shadow: 0 2px 8px rgba(2, 136, 209, 0.3);
+}
+
+.btn-primary:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #78909c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #607d8b;
+}
+
+.btn-back, .link-nav {
+  display: inline-block;
+  padding: 8px 16px;
+  color: var(--dark-blue);
+  background-color: var(--light-blue-bg);
+  border: 1px solid var(--section-border);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-back:hover, .link-nav:hover {
+  background-color: #bbdefb;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-table th {
+  background-color: var(--dark-blue);
+  color: #ffffff;
+  padding: 12px;
   text-align: center;
+  font-size: 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.custom-table tbody tr:hover {
+  background-color: #f0f7ff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-control {
+  padding: 9px 14px;
+  font-size: 15px;
+  border: 1px solid var(--section-border);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+.form-control:focus {
+  border-color: var(--dark-blue);
+  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.info-box {
+  background-color: var(--light-blue-bg);
+  border: 1px solid var(--section-border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  color: var(--text-dark);
 }
